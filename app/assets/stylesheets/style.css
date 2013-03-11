@@ -1,0 +1,50 @@
+/******************************
+* Header                      *
+******************************/
+* {
+  margin: 0;
+}
+#header {
+  background: black;
+  color: white;
+  border: 0 solid black;
+  box-shadow: 0 3px 5px rgba(0,0,0,.5);
+  margin-bottom: 20px;
+}
+
+.pull_right{ 
+  float: right;
+}
+
+.pull_left{
+  float: left;
+}
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+#user_block {
+  margin: 5px 5px 5px 0;
+}
+#user_block img {
+  vertical-align: middle;
+}
+#project_block {
+  margin: 5px 0 0 10px;
+}
+#search_bar {
+  margin: 5px 0 0 350px;
+}
+#search_bar input {
+  text-align: center;
+  border: 0 solid black;
+  box-shadow: 1px 1px 10px inset;
+}
+#logo {
+  margin-top: 5px;
+}

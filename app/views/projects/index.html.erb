@@ -1,23 +1,14 @@
-<h1>Listing projects</h1>
+<h1>Projects</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Project', new_project_path %>
+<div id="projects">
+  <% @projects.each do |project| %>
+    <div>
+      <h2><%= link_to project.name, project %></h2>
+      <h4>Created by <%= link_to project.user[:first_name], user_path(project.user[:id]) %></h4>
+      <p>Description: <%= project.description %></p>
+      <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+      <p><%= link_to "Edit Project", edit_project_path(project) %></p>
+    </div>
+  <% end %>
+</div>

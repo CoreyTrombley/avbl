@@ -1,0 +1,13 @@
+%div.large-6.columns.push-3
+  %h2 User Profile
+  %ul
+    - if @user.avatar.url.present?
+      %li= image_tag @user.avatar.thumb
+    %li= @user.first_name
+    - if @user.last_name.present?
+      %li= @user.last_name
+    - else
+      %li None provided
+    %li= @user.email
+    %li= @user.date_of_birth
+    %li= @user.gender

@@ -1,0 +1,14 @@
+#header.clearfix
+  #logo.pull_left
+    %h4= link_to "Avbl", root_path
+  #search_bar.pull_left
+    = text_field_tag 'Search', nil, :placeholder => "What are you looking for?", :size => '30'
+  #project_block.pull_left
+    = link_to 'Post', new_project_path
+    %span ~
+    = link_to 'Find'
+  #user_block.pull_right
+    = render :partial => 'layouts/user_sign_in'
+    - if current_user.present?
+      = link_to current_user.first_name.capitalize + " " + current_user.last_name.capitalize, dashboard_path
+      = image_tag current_user.avatar.small_thumb

@@ -1,0 +1,23 @@
+// Place all the styles related to the splash controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: #edeef0;
+}
+
+#splash img {
+  display: inline;
+  margin: 5px;
+  box-shadow: 5px 5px 10px #888;
+  border: 5px solid white;
+}
+
+.signinbox {
+  background: white;
+  height: 370px;
+  width: 380px;
+  margin: 5px 0px 0 5px;
+  padding: 20px;
+  box-shadow: 5px 5px 10px #888;
+}

@@ -1,8 +1,22 @@
 Avbl::Application.routes.draw do
+
+  match '/dashboard', :to => 'dashboard#index', :via => :get
+  get "splash/index"
+
+  resources :friendships
+
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
+  get 'tags/:tag', to: 'projects#index', as: :tag
   resources :projects
+  root :to => 'splash#index'
+
 
 
   devise_for :users
+  match '/users/:id', :to => 'users#show', :as => :user
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -53,11 +67,11 @@ Avbl::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-    root :to => 'projects#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end

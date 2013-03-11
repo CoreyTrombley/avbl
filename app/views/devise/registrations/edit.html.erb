@@ -1,21 +1,67 @@
+<div class='row'>
+    <div class="small-12 columns">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :multipart => true , :method => :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div class="row">
+    <div class="small-2 columns">
+      <div><%= f.label :first_name %>
+      <%= f.text_field :first_name %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+      <div><%= f.label :last_name %>
+      <%= f.text_field :last_name %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+      <div><%= f.label :date_of_birth %>
+      <%= f.date_select :date_of_birth %></div>
+    </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+    <div class="small-3 small-offset-2 columns">
+      <div>
+        <% if current_user.avatar.url.present? %>
+          <%= image_tag(current_user.avatar.thumb.url) %>
+          <%= f.label :remove_avatar do %>
+            <%= f.label :remove_avatar %>
+            <%= f.check_box :remove_avatar %>
+          <%end%>
+          <%= f.label :avatar, 'Upload Avatar' %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        <%else%>
+          <%= f.label :avatar, 'Upload Avatar' %><br>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+        <%end%>
+      </div>
+    </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+    <div class="small-2 small-offset-2 columns">
+      <div><%= f.label :gender %>
+      Male:<%= f.radio_button :gender, 'Male' %><br>
+      Female:<%= f.radio_button :gender, 'Female' %><br>
+      Hidden:<%= f.radio_button :gender, 'Hidden' %></div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="small-3 columns">
+      <div><%= f.label :email %>
+      <%= f.email_field :email %></div>
+    </div>
+    <div class="small-3 small-offset-1 columns">
+      <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.submit "Update" %></div>
+      <div><%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %></div>
+    </div>
+    <div class="small-3 columns">
+      <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password %></div>
+
+      <div><%= f.submit "Update" %></div>
+    </div>
+  </div>
 <% end %>
 
 <h3>Cancel my account</h3>
@@ -23,3 +69,5 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
 
 <%= link_to "Back", :back %>
+</div>
+</div>
