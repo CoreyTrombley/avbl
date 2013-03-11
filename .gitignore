@@ -1,0 +1,29 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+*.log
+*.sqlite3
+config/database.yml
+db/schema.rb
+tmp/**/*
+
+public
+
+test
+
+db
+test/fixtures/comments.yml
+
+test/fixtures/users.yml
+
+test/unit/comment_test.rb
