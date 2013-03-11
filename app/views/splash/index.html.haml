@@ -8,16 +8,14 @@
         .signinbox
           %h1 Welcome to AVBL
           %p Please sign in to continue,
-          %p
-            or
-            = link_to 'Sign Up', new_user_registration_path
           = form_tag user_session_path do
-            = text_field_tag 'user[email]',nil, :placeholder => 'Email'
+            = text_field_tag 'user[email]',nil, :placeholder => 'Email', :autofocus => true
             = password_field_tag 'user[password]',nil, :placeholder => 'Password'
-            = check_box_tag 'user[remember_me]'
-            = label_tag 'user[remember_me]', 'Remember me'
-            %button Login
-            = link_to "Forgot your password?", new_password_path('user')
+            %button.button.small.radius  Login
+          .small-4.small-centered.columns
+            %p or you can
+          %p.push-4
+            = link_to 'Sign Up', new_user_registration_path, :class => 'button radius'
       .small-3.columns
         = image_tag ("splash/2.jpg")
         = image_tag ("splash/4.jpg")
