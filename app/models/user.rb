@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  first_name             :string(255)      default("User2013-02-26 02:28:28 -0500")
+#  first_name             :string(255)      default("User2013-03-11 17:18:07 -0400")
 #  last_name              :string(255)      default("")
 #  date_of_birth          :date
 #  gender                 :string(255)      default("Hidden")
@@ -36,8 +36,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :date_of_birth, :gender, :email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache, :remove_avatar
   # attr_accessible :title, :body
-
-  validates_presence_of   :avatar
+  # validates_presence_of   :avatar
   validates_integrity_of  :avatar
   validates_processing_of :avatar
 end
