@@ -7,6 +7,14 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 gem 'devise'
+gem 'acts-as-taggable-on'
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+gem 'public_activity'
+gem "nifty-generators", :group => :development
+gem 'haml'
+gem 'carrierwave'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required
@@ -14,6 +22,7 @@ gem 'devise'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-script-source', '~> 1.4.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -37,3 +46,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test
