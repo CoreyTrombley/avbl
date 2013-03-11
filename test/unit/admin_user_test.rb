@@ -1,12 +1,8 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: admin_users
 #
 #  id                     :integer          not null, primary key
-#  first_name             :string(255)      default("User2013-02-26 02:28:28 -0500")
-#  last_name              :string(255)      default("")
-#  date_of_birth          :date
-#  gender                 :string(255)      default("Hidden")
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
 #  reset_password_token   :string(255)
@@ -19,17 +15,12 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  avatar                 :string(255)
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+require 'test_helper'
 
-# This model initially had no columns defined.  If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+class AdminUserTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
