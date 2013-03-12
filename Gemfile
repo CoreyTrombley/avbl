@@ -15,6 +15,8 @@ gem "nifty-generators", :group => :development
 gem 'haml'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 # Gems used only for assets and not required

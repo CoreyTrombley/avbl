@@ -7,13 +7,12 @@
       .small-6.columns
         .signinbox
           %h1 Welcome to AVBL
-          %p Please sign in to continue,
+          %p Please sign in to continue.
+          = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "small button radius"
           = form_tag user_session_path do
             = text_field_tag 'user[email]',nil, :placeholder => 'Email', :autofocus => true
             = password_field_tag 'user[password]',nil, :placeholder => 'Password'
             %button.button.small.radius  Login
-          .small-4.small-centered.columns
-            %p or you can
           %p.push-4
             = link_to 'Sign Up', new_user_registration_path, :class => 'button radius'
       .small-3.columns

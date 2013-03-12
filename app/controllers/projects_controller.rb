@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
       @projects = Project.all
     end
 
+    @editable_projects = current_user.projects
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }

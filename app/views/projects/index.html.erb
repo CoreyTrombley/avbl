@@ -8,7 +8,7 @@
       <h4>Created by <%= link_to project.user[:first_name], user_path(project.user[:id]) %></h4>
       <p>Description: <%= project.description %></p>
       <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
-      <p><%= link_to "Edit Project", edit_project_path(project) %></p>
+      <p><%= link_to "Edit Project", edit_project_path(project) if current_user.projects.include?(project)%></p>
     </div>
   <% end %>
 </div>
