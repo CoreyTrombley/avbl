@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.haml
       format.xml  { render :xml => @users }
     end
   end
