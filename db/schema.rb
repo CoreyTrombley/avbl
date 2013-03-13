@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20130312160739) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",             :default => "User2013-03-11 17:18:07 -0400"
+    t.string   "first_name",             :default => "User2013-03-12 16:00:47 -0400"
     t.string   "last_name",              :default => ""
     t.date     "date_of_birth"
     t.string   "gender",                 :default => "Hidden"

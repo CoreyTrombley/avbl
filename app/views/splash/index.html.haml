@@ -13,8 +13,9 @@
             = text_field_tag 'user[email]',nil, :placeholder => 'Email', :autofocus => true
             = password_field_tag 'user[password]',nil, :placeholder => 'Password'
             %button.button.small.radius  Login
-          %p.push-4
-            = link_to 'Sign Up', new_user_registration_path, :class => 'button radius'
+          .small-2.small-centered.columns -or-
+          %p.push-3
+            = link_to 'Create an account', new_user_registration_path, :class => 'button radius'
       .small-3.columns
         = image_tag ("splash/2.jpg")
         = image_tag ("splash/4.jpg")

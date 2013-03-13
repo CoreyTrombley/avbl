@@ -12,6 +12,8 @@ Avbl::Application.routes.draw do
   get 'tags/:tag', to: 'projects#index', as: :tag
   resources :projects
   root :to => 'splash#index'
+  get '/beta' => 'splash#index', :via => :get
+
 
 
 
