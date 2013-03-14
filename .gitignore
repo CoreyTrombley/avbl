@@ -27,3 +27,5 @@ test/fixtures/comments.yml
 test/fixtures/users.yml
 
 test/unit/comment_test.rb
+
+/.idea
