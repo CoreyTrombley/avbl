@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'newrelic_rpm'
 
 
 # Gems used only for assets and not required
