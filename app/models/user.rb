@@ -38,9 +38,26 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :date_of_birth, :gender, :email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache, :remove_avatar, :provider, :uid
+  attr_accessible :first_name, :last_name, :date_of_birth, :gender, :email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache, :remove_avatar, :provider, :uid, :remote_avatar_url
   # attr_accessible :title, :body
   # validates_presence_of   :avatar
   validates_integrity_of  :avatar
   validates_processing_of :avatar
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+  user = User.where(:provider => auth.provider, :uid => auth.uid).first
+  unless user
+    binding.pry
+    user = User.create(first_name:auth.extra.raw_info.first_name,
+                         last_name:auth.extra.raw_info.last_name,
+                         provider:auth.provider,
+                         uid:auth.uid,
+                         email:auth.info.email,
+                         password:Devise.friendly_token[0,20],
+                         remote_avatar_url:auth.info.image,
+                         gender:auth.info.gender
+                         )
+  end
+  user
+end
 end

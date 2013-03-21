@@ -16,8 +16,9 @@ gem 'haml'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 1.4.0'
 gem 'newrelic_rpm'
+gem 'pry'
 
 
 # Gems used only for assets and not required

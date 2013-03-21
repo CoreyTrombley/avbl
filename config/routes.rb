@@ -13,11 +13,15 @@ Avbl::Application.routes.draw do
   resources :projects
   root :to => 'splash#index'
   get '/beta' => 'splash#index', :via => :get
+  
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
 
 
 
-  devise_for :users
+devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   match '/users/:id', :to => 'users#show', :as => :user
 
   # The priority is based upon order of creation:
