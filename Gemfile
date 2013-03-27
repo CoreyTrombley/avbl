@@ -19,6 +19,8 @@ gem 'omniauth'
 gem 'omniauth-facebook', '~> 1.4.0'
 gem 'newrelic_rpm'
 gem 'pry'
+gem "better_errors"
+gem "binding_of_caller"
 
 
 # Gems used only for assets and not required
