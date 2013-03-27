@@ -1,4 +1,10 @@
 %div.large-12.columns
+  - if !current_user.friends.include?(@user) && current_user != @user
+    = link_to "Follow", friendships_path(:friend_id => @user), :method => :post, :class => "button"
+  - elsif current_user != @user
+    - for friendship in current_user.friendships
+      - if friendship.friend == @user
+        = link_to "Unfollow", friendship, :method => :delete, :class => "button"
   %h2 User Profile
   %ul
     - if @user.avatar.url.present?
@@ -25,7 +31,7 @@
         = user.first_name + " " + user.last_name
   %h2 People You Follow
   %ul
-    - for user in @user.friends
+    - for friendship in @user.friendships
       %li.button.tiny
-        = link_to (image_tag user.avatar.thumb), user_path(user)
-        = user.first_name + " " + user.last_name
+        = link_to (image_tag friendship.friend.avatar.thumb), user_path(friendship.friend)
+        = friendship.friend.first_name + " " + friendship.friend.last_name

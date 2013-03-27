@@ -1,3 +1,17 @@
 .row
   .small-12.columns
+    - if current_user
+      %h2 Users Who Follow You
+      %ul
+        - for user in current_user.inverse_friends
+          %li.button.tiny
+            = link_to (image_tag user.avatar.thumb), user_path(user)
+            = user.first_name + " " + user.last_name
+      %h2 People You Follow
+      %ul
+        - for friendship in current_user.friendships
+          %li.button.tiny
+            = link_to (image_tag friendship.friend.avatar.thumb), user_path(friendship.friend)
+            = friendship.friend.first_name + " " + friendship.friend.last_name
+  .small-12.columns
     %h2= current_user.first_name + "'s" + " Feed"

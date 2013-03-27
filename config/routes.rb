@@ -1,6 +1,6 @@
 Avbl::Application.routes.draw do
 
-  match '/dashboard', :to => 'dashboard#index', :via => :get
+  match "/dashboard", :to => 'dashboard#index'
   get "splash/index"
 
   resources :friendships
