@@ -20,7 +20,7 @@ public
 
 test
 
-db
+
 test/fixtures/comments.yml
 
 test/fixtures/users.yml
