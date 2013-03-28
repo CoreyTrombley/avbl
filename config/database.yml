@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: avbk_development
+  database: avbl_development
   username: postgres
   password: 
   host: localhost
