@@ -14,14 +14,14 @@ Icon
 *.log
 *.sqlite3
 config/database.yml
-db/schema.rb
+
 tmp/**/*
 
 public
 
 test
 
-db
+
 test/fixtures/comments.yml
 
 test/fixtures/users.yml
