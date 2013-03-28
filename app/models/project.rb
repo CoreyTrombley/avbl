@@ -12,6 +12,7 @@
 
 class Project < ActiveRecord::Base
   belongs_to :user
+  has_many :comments, :dependent => :destroy
   attr_accessible :name, :description, :tag_list, :user_id
   has_many :tags
   acts_as_taggable
