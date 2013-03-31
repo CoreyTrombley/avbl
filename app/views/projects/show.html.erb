@@ -12,10 +12,9 @@
 
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.user.first_name %> said</td>
-    <td><%= comment.comment %></td>
-  </tr>
+  <p><%= comment.user.first_name %> <%= comment.user.last_name %>  commented:</p>
+  <p><em><%= comment.comment %></em></p>
+    <p><i>at <%= comment.created_at.strftime("%H:%M") %> on  <%= comment.created_at.strftime("%d %b. %Y") %></i></p> 
 <% end %>
 
 <h5>Add a comment:</h5>
