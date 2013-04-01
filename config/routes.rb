@@ -4,13 +4,14 @@ Avbl::Application.routes.draw do
   get "splash/index"
 
   resources :friendships
-
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   get 'tags/:tag', to: 'projects#index', as: :tag
-  resources :projects
+  resources :projects do
+    resources :comments
+  end
   root :to => 'splash#index'
   get '/beta' => 'splash#index', :via => :get
   
