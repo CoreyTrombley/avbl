@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20130328012630) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",             :default => "User2013-03-27 00:44:23 -0400"
+    t.string   "first_name",             :default => "User2013-03-27 22:34:25 -0400"
     t.string   "last_name",              :default => ""
     t.date     "date_of_birth"
     t.string   "gender",                 :default => "Hidden"
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20130328012630) do
     t.datetime "created_at",                                                          :null => false
     t.datetime "updated_at",                                                          :null => false
     t.string   "avatar"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

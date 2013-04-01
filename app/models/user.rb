@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  first_name             :string(255)      default("User2013-03-11 17:18:07 -0400")
+#  first_name             :string(255)      default("User2013-03-27 22:34:25 -0400")
 #  last_name              :string(255)      default("")
 #  date_of_birth          :date
 #  gender                 :string(255)      default("Hidden")
@@ -20,6 +20,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  avatar                 :string(255)
+#  provider               :string(255)
+#  uid                    :string(255)
 #
 
 class User < ActiveRecord::Base
