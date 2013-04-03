@@ -48,3 +48,10 @@
 #logo {
   margin-top: 5px;
 }
+
+div.comment_box {
+  background: white;
+  border: 0 solid black;
+  box-shadow: 0 0 2px inset;
+  padding: 3px 10px 0 10px;
+}
