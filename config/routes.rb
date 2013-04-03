@@ -1,7 +1,6 @@
 Avbl::Application.routes.draw do
 
   match "/dashboard", :to => 'dashboard#index'
-  get "splash/index"
 
   resources :friendships
   ActiveAdmin.routes(self)
@@ -12,11 +11,11 @@ Avbl::Application.routes.draw do
   resources :projects do
     resources :comments
   end
-  root :to => 'splash#index'
-  get '/beta' => 'splash#index', :via => :get
+  #root :to => 'splash#index'
+  match "/beta", :to => "splash#index"
   
   match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
+  match 'auth/failure', to: redirect('/beta')
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

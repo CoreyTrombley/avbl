@@ -8,15 +8,13 @@
   %h2 User Profile
   %ul
     - if @user.avatar.url.present?
-      %li= image_tag @user.avatar.thumb
+      %li= image_tag @user.avatar.user_thumb
     %li= @user.first_name
     - if @user.last_name.present?
       %li= @user.last_name
     - else
       %li None provided
     %li= @user.email
-    %li= @user.date_of_birth
-    %li= @user.gender
   %h5 Projects
   %ul 
     - @user.projects.each do |p|
@@ -27,11 +25,11 @@
   %ul
     - for user in @user.inverse_friends
       %li.button.tiny
-        = link_to (image_tag user.avatar.thumb), user_path(user)
+        = link_to (image_tag user.avatar.user_thumb), user_path(user)
         = user.first_name + " " + user.last_name
   %h2 People You Follow
   %ul
     - for friendship in @user.friendships
       %li.button.tiny
-        = link_to (image_tag friendship.friend.avatar.thumb), user_path(friendship.friend)
+        = link_to (image_tag friendship.friend.avatar.user_thumb), user_path(friendship.friend)
         = friendship.friend.first_name + " " + friendship.friend.last_name

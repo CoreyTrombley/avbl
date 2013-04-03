@@ -13,7 +13,7 @@
       <%= f.text_field :last_name %></div>
 
       <div><%= f.label :date_of_birth %>
-      <%= f.date_select :date_of_birth %></div>
+      <%= f.date_select :date_of_birth, :start_year => 1900, :end_year => 2008, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %></div>
     </div>
 
     <div class="small-3 small-offset-2 columns">
