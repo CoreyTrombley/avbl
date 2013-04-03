@@ -1,6 +1,6 @@
 <aside class="large-3 columns hide-for-small">
-  <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
-  <p><img src="http://placehold.it/300x440&text=[ad]" /></p>
+  <p><%= image_tag("CR_1.jpg") %></p>
+  <p><%= image_tag("CR_2.jpg") %></p>
   <div id="tag_cloud">
     <% if params[:controller] == 'projects' %>
       <% tag_cloud Project.tag_counts, %w{s m l} do |tag, css_class| %>
