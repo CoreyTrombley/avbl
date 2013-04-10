@@ -17,7 +17,7 @@ Avbl::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/beta')
   match 'signout', to: 'sessions#destroy', as: 'signout'
-
+  devise_for :users, :controllers => { :registrations => "registrations" }
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   match '/users/:id', :to => 'users#show', :as => :user
 end
