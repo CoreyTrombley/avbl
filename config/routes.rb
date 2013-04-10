@@ -11,7 +11,7 @@ Avbl::Application.routes.draw do
   resources :projects do
     resources :comments
   end
-  #root :to => 'splash#index'
+  root :to => 'splash#index'
   match "/beta", :to => "splash#index"
   
   match 'auth/:provider/callback', to: 'sessions#create'
