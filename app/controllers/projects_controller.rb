@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])
     else
-      @projects = Project.all.reverse
+      @projects = Project.order("created_at desc").all
     end
 
     @editable_projects = current_user.projects
