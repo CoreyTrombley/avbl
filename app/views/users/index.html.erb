@@ -1,0 +1,32 @@
+<div class="small-12 columns">
+
+  <h1>Users</h1>
+
+
+  <%= form_tag users_path, method: :get do %>
+    <p>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", name: nil, class: "button" %>
+    </p>
+  <% end %>
+
+  <%= paginate @users %>
+  <ul>
+  <% @users.each do |user| %> 
+    <li>
+      <%= user.first_name %>
+      <%= user.last_name %>
+      <% if !current_user.friends.include?(user) && current_user != user %>
+        <%= link_to "Follow", friendships_path(:friend_id => user), :method => :post, :class => "button" %>
+      <% elsif current_user != user %>
+        <% for friendship in current_user.friendships %>
+          <% if friendship.friend == user %>
+            <%= link_to "Unfollow", friendship, :method => :delete, :class => "button" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+  <%= paginate @users %>
+</div>

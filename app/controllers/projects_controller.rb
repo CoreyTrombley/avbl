@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     if params[:tag]
       @projects = Project.tagged_with(params[:tag])
     else
-      @projects = Project.order("created_at desc").all
+      @projects = Project.order("created_at desc").text_search(params[:query]).page(params[:page]).per(5)
     end
 
     @editable_projects = current_user.projects

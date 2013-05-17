@@ -16,4 +16,12 @@ class Project < ActiveRecord::Base
   attr_accessible :name, :description, :tag_list, :user_id
   has_many :tags
   acts_as_taggable
+
+  def self.text_search(query)
+    if query.present?
+      where("name ilike :q or description ilike :q", q: "%#{query}%")
+    else
+      scoped
+    end
+  end
 end

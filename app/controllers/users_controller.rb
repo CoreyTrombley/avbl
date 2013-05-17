@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   layout 'new_feed'
   def index
-    @users = User.all
+    @users = User.text_search(params[:query]).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.haml

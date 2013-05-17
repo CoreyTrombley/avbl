@@ -7,9 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-    User.create(first_name:'Chris', last_name:'Trombley', email:'chris@test.com', password:'Skater33')
-    User.create(first_name:'Corey', last_name:'Trombley', email:'corey@test.com', password:'Skater33')
-    User.create(email:'mike@test.com', password:'Skater33')
-    User.create(email:'jim@test.com', password:'Skater33')
-    User.create(email:'mark@test.com', password:'Skater33')
-    User.create(email:'jane@test.com', password:'Skater33')
+  User.create(first_name:'Corey', last_name:'Trombley', email:'corey@test.com', password:'password')
+
+  100.times do
+    User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password:'password')
+
+    Project.create(name: Faker::Company.catch_phrase, description: Faker::Company.bs, user_id: rand(1..100) )
+  end

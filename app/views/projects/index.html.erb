@@ -1,6 +1,13 @@
 <h1>Projects</h1>
 
+<%= form_tag projects_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil, class: "button" %>
+  </p>
+<% end %>
 
+<%= paginate @projects %>
 <div id="projects">
   <% @projects.each do |project| %>
     <div>
@@ -13,3 +20,4 @@
     </div>
   <% end %>
 </div>
+<%= paginate @projects %>

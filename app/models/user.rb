@@ -48,18 +48,26 @@ class User < ActiveRecord::Base
   validates_processing_of :avatar
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-  user = User.where(:provider => auth.provider, :uid => auth.uid).first
-  unless user
-    user = User.create(first_name:auth.extra.raw_info.first_name,
-                         last_name:auth.extra.raw_info.last_name,
-                         provider:auth.provider,
-                         uid:auth.uid,
-                         email:auth.info.email,
-                         password:Devise.friendly_token[0,20],
-                         remote_avatar_url:auth.info.image,
-                         gender:auth.info.gender
-                         )
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(first_name:auth.extra.raw_info.first_name,
+                           last_name:auth.extra.raw_info.last_name,
+                           provider:auth.provider,
+                           uid:auth.uid,
+                           email:auth.info.email,
+                           password:Devise.friendly_token[0,20],
+                           remote_avatar_url:auth.info.image,
+                           gender:auth.info.gender
+                           )
+    end
+    user
   end
-  user
-end
+
+  def self.text_search(query)
+    if query.present?
+      where("first_name ilike :q or last_name ilike :q", q: "%#{query}%")
+    else
+      scoped
+    end
+  end
 end
