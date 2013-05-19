@@ -31,12 +31,13 @@ group  :development do
   gem "nifty-generators"
 end
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'coffee-script-source', '~> 1.4.0'
-  gem 'uglifier', '>= 1.0.3'
-end
+# In rails4 there's no group :assets
+gem "therubyracer"
+gem 'sass-rails'
+gem 'less-rails',   '~> 2.3.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'coffee-script-source', '~> 1.4.0'
+gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
 
